@@ -4,6 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -18,9 +19,10 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'nombre',
         'email',
         'password',
+        'tipo',
     ];
 
     /**
@@ -30,7 +32,6 @@ class User extends Authenticatable
      */
     protected $hidden = [
         'password',
-        'remember_token',
     ];
 
     /**
@@ -39,7 +40,33 @@ class User extends Authenticatable
      * @var array<string, string>
      */
     protected $casts = [
-        'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    /**
+     * Relación con las tiendas.
+     * Un vendedor puede tener muchas tiendas.
+     */
+    public function tiendas(): HasMany
+    {
+        return $this->hasMany(Tienda::class);
+    }
+
+    /**
+     * Relación con los carritos de compra.
+     * Un cliente puede tener muchos carritos.
+     */
+    public function carritos(): HasMany
+    {
+        return $this->hasMany(Carrito::class);
+    }
+
+    /**
+     * Relación con las órdenes de compra (historial de compras del cliente).
+     * Un cliente puede haber realizado muchas órdenes.
+     */
+    public function ordenes(): HasMany
+    {
+        return $this->hasMany(Orden::class);
+    }
 }
