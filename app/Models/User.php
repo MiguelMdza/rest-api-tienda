@@ -62,11 +62,11 @@ class User extends Authenticatable
     }
 
     /**
-     * Relación con las órdenes de compra (historial de compras del cliente).
-     * Un cliente puede haber realizado muchas órdenes.
+     * Relación con las compras (historial de compras del cliente).
+     * Un cliente puede haber realizado muchas compras.
      */
-    public function ordenes(): HasMany
+    public function compras(): HasMany
     {
-        return $this->hasMany(Orden::class);
+        return $this->hasMany(Compra::class);
     }
 }

@@ -42,11 +42,11 @@ class Producto extends Model
     }
 
     /**
-     * Relación con las órdenes de compra.
-     * Un producto puede haber sido comprado en muchas órdenes.
+     * Relación con las compras.
+     * Un producto puede haber sido comprado varias veces.
      */
-    public function ordenes(): HasMany
+    public function compras(): HasMany
     {
-        return $this->hasMany(OrdenProducto::class);
+        return $this->hasMany(CompraProducto::class);
     }
 }

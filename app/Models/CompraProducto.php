@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class OrdenProducto extends Model
+class CompraProducto extends Model
 {
     use HasFactory;
 
@@ -16,18 +16,18 @@ class OrdenProducto extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'orden_id',
+        'compra_id',
         'producto_id',
         'cantidad',
         'precio',
     ];
 
     /**
-     * Relación con la orden de compra.
+     * Relación con la compra.
      */
-    public function orden(): BelongsTo
+    public function compra(): BelongsTo
     {
-        return $this->belongsTo(Orden::class);
+        return $this->belongsTo(Compra::class);
     }
 
     /**

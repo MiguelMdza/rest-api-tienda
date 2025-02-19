@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Orden extends Model
+class Compra extends Model
 {
     use HasFactory;
 
@@ -23,7 +23,7 @@ class Orden extends Model
 
     /**
      * Relación con el usuario.
-     * Una orden pertenece a un solo usuario (cliente).
+     * Una compra pertenece a un solo usuario (cliente).
      */
     public function user(): BelongsTo
     {
@@ -32,10 +32,10 @@ class Orden extends Model
 
     /**
      * Relación con los productos comprados.
-     * Una orden puede incluir muchos productos.
+     * Una compra puede incluir muchos productos.
      */
     public function productos(): HasMany
     {
-        return $this->hasMany(OrdenProducto::class);
+        return $this->hasMany(CompraProducto::class);
     }
 }
