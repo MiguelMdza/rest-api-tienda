@@ -1,5 +1,5 @@
-## Diagrama Entidad Relación
+## Diagrama Base de Datos
 
-A continuación se presenta el Diagrama Entidad Relación de la BD de la API Tienda:
+A continuación se presenta el Diagrama de la BD de la API Tienda:
 
-<img src="DiagramaEntidadRelacionAPITienda.JPG" width="400">
+<img src="DiagramaBaseDatosAPITienda.png" width="400">
